@@ -1,0 +1,8 @@
+on boot
+    chown system system /sys/class/backlight/acpi_video0/brightness
+
+service wpa_supplicant /system/bin/wpa_supplicant -Dnl80211 -iwlan0 -c/data/misc/wifi/wpa_supplicant.conf
+    group wifi inet
+    disabled
+    oneshot
+

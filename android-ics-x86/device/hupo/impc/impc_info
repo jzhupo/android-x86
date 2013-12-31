@@ -1,0 +1,40 @@
+DMIPATH=/sys/class/dmi/id
+
+impc_info()
+{
+	board=`cat $DMIPATH/product_name`
+	case "$board" in
+		*D630*)
+			modprobe b43
+			;;
+		*O.E.M.*)
+			#echo Nietzsche X10
+			modprobe b43
+			#insmod /system/lib/modules/3dspusbbus.ko
+			#insmod /system/lib/modules/3dspusbwlanpriv.ko
+			#insmod /system/lib/modules/3dspusbwlan.ko
+			#insmod /system/lib/modules/3dspusbbtpriv.ko
+			#insmod /system/lib/modules/3dspusbbt.ko
+			;;
+		*)
+			#insmod /system/lib/modules/wlan.ko
+			;;
+	esac
+	echo test > /sys/power/wake_lock
+	return 1
+}
+
+detect_hardware()
+{
+	case "`cat $DMIPATH/uevent`" in
+		*D630*|*O.E.M.*)
+			impc_info
+			;;
+		*VMware*|*VirtualBox*)
+			;;
+		*)
+			error WARNING: An unknown tablet
+			;;
+	esac
+}
+

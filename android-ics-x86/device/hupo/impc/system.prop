@@ -1,0 +1,8 @@
+# system.prop for impc
+ro.sf.lcd_density=160
+ro.sf.install_non_market_apps=1
+keyguard.no_require_sim=1
+wifi.supplicant_scan_interval=120
+#wlan.modname=wl
+ro.hardware=impc
+# end system.prop for impc
