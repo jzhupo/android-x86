@@ -21,6 +21,13 @@
     <!-- WIRELESS and NETWORKS -->
     <header android:title="@string/header_category_wireless_networks" />
 
+    <!-- Ethernet -->
+    <header
+        android:id="@+id/ethernet_settings"
+        android:title="@string/eth_radio_ctrl_title"
+        android:icon="@drawable/ic_settings_ethernet"
+        android:fragment="com.android.settings.ethernet.EthernetSettings"/>
+
     <!-- Wifi -->
     <header
         android:id="@+id/wifi_settings"

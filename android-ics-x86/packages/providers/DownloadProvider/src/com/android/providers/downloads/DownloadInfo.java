@@ -418,6 +418,9 @@ public class DownloadInfo {
             case ConnectivityManager.TYPE_WIFI:
                 return DownloadManager.Request.NETWORK_WIFI;
 
+            case ConnectivityManager.TYPE_ETHERNET:
+                return DownloadManager.Request.NETWORK_ETHERNET;
+
             default:
                 return 0;
         }
@@ -433,6 +436,9 @@ public class DownloadInfo {
         }
         if (networkType == ConnectivityManager.TYPE_WIFI) {
             return NETWORK_OK; // anything goes over wifi
+        }
+        if (networkType == ConnectivityManager.TYPE_ETHERNET) {
+            return NETWORK_OK; // anything goes over ethernet
         }
         Long maxBytesOverMobile = mSystemFacade.getMaxBytesOverMobile();
         if (maxBytesOverMobile != null && mTotalBytes > maxBytesOverMobile) {
