@@ -153,6 +153,7 @@ class ServerThread extends Thread {
         CommonTimeManagementService commonTimeMgmtService = null;
         InputManagerService inputManager = null;
         TelephonyRegistry telephonyRegistry = null;
+        EthernetService eth = null;
 
         // Create a shared handler thread for UI within the system server.
         // This thread is used by at least the following components:
@@ -477,7 +478,7 @@ class ServerThread extends Thread {
                 reportWtf("starting NetworkPolicy Service", e);
             }
 
-           try {
+            try {
                 Slog.i(TAG, "Wi-Fi P2pService");
                 wifiP2p = new WifiP2pService(context);
                 ServiceManager.addService(Context.WIFI_P2P_SERVICE, wifiP2p);
@@ -485,12 +486,20 @@ class ServerThread extends Thread {
                 reportWtf("starting Wi-Fi P2pService", e);
             }
 
-           try {
+            try {
                 Slog.i(TAG, "Wi-Fi Service");
                 wifi = new WifiService(context);
                 ServiceManager.addService(Context.WIFI_SERVICE, wifi);
             } catch (Throwable e) {
                 reportWtf("starting Wi-Fi Service", e);
+            }
+
+            try {
+                Slog.i(TAG, "Ethernet Service");
+                eth = new EthernetService(context);
+                ServiceManager.addService(Context.ETHERNET_SERVICE, eth);
+            } catch (Throwable e) {
+                reportWtf("starting Ethernet Service", e);
             }
 
             try {

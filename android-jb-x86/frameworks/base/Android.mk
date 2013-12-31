@@ -46,7 +46,9 @@ LOCAL_SRC_FILES += \
 LOCAL_SRC_FILES := $(filter-out \
 			org/mobilecontrol/% \
 			,$(LOCAL_SRC_FILES))
-
+LOCAL_SRC_FILES := $(filter-out \
+			core/java/android/net/EthernetDataTracker.java \
+			,$(LOCAL_SRC_FILES))
 ## READ ME: ########################################################
 ##
 ## When updating this list of aidl files, consider if that aidl is
@@ -205,6 +207,7 @@ LOCAL_SRC_FILES += \
 	core/java/com/android/internal/widget/ILockSettings.aidl \
 	core/java/com/android/internal/widget/IRemoteViewsFactory.aidl \
 	core/java/com/android/internal/widget/IRemoteViewsAdapterConnection.aidl \
+	ethernet/java/com/android/internal/ethernet/IEthernetManager.aidl \
 	keystore/java/android/security/IKeyChainAliasCallback.aidl \
 	keystore/java/android/security/IKeyChainService.aidl \
 	location/java/android/location/ICountryDetector.aidl \

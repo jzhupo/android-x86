@@ -49,7 +49,7 @@ import android.database.ContentObserver;
 import android.net.CaptivePortalTracker;
 import android.net.ConnectivityManager;
 import android.net.DummyDataStateTracker;
-import android.net.EthernetDataTracker;
+//import android.net.EthernetDataTracker;
 import android.net.IConnectivityManager;
 import android.net.INetworkManagementEventObserver;
 import android.net.INetworkPolicyListener;
@@ -102,6 +102,7 @@ import android.util.SparseIntArray;
 import android.util.Xml;
 
 import com.android.internal.R;
+import com.android.internal.ethernet.EthernetManager;
 import com.android.internal.net.LegacyVpnInfo;
 import com.android.internal.net.VpnConfig;
 import com.android.internal.net.VpnProfile;
@@ -644,7 +645,8 @@ public class ConnectivityService extends IConnectivityManager.Stub {
                 case TYPE_WIMAX:
                     return makeWimaxStateTracker(mContext, mTrackerHandler);
                 case TYPE_ETHERNET:
-                    return EthernetDataTracker.getInstance();
+                    //return EthernetDataTracker.getInstance();
+                    return (NetworkStateTracker) mContext.getSystemService(Context.ETHERNET_SERVICE);
                 default:
                     throw new IllegalArgumentException(
                             "Trying to create a NetworkStateTracker for an unknown radio type: "

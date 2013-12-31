@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Hashtable;
+import java.util.Iterator;
 
 /**
  * Describes the properties of a network link.
@@ -140,12 +141,23 @@ public class LinkProperties implements Parcelable {
         if (address != null) mLinkAddresses.add(address);
     }
 
+    public void setLinkAddress(LinkAddress address) {
+        if (address != null) {
+            mLinkAddresses.clear();
+            addLinkAddress(address);
+        }
+    }
+
     public Collection<LinkAddress> getLinkAddresses() {
         return Collections.unmodifiableCollection(mLinkAddresses);
     }
 
     public void addDns(InetAddress dns) {
         if (dns != null) mDnses.add(dns);
+    }
+
+    public void setDnses(Collection<InetAddress> dnses) {
+        mDnses = dnses;
     }
 
     public Collection<InetAddress> getDnses() {
@@ -176,6 +188,16 @@ public class LinkProperties implements Parcelable {
                    " vs. " + mIfaceName);
             }
             mRoutes.add(routeWithInterface(route));
+        }
+    }
+
+    public void setDefaultGateway(InetAddress gw) {
+        Iterator<RouteInfo> iter = mRoutes.iterator();
+        while (iter.hasNext()) {
+            RouteInfo route = iter.next();
+            if (route.isDefaultRoute()) {
+                iter.remove();
+            }
         }
     }
 
