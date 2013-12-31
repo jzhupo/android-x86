@@ -1,0 +1,9 @@
+ifndef TARGET_PRODUCT
+TARGET_PRODUCT:=android_x86
+endif
+
+ifndef TARGET_BUILD_VARIANT
+TARGET_BUILD_VARIANT:=user
+endif
+
+DISABLE_PROGUARD:=true

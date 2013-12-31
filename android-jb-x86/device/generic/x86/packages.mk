@@ -59,3 +59,9 @@ PRODUCT_PACKAGES += \
     AndroidTerm \
     FileManager \
     LIME \
+
+PRODUCT_PACKAGES += \
+    PinyinIME \
+    SpeechRecorder \
+    VideoEditor \
+    VoiceDialer \

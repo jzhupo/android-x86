@@ -20,6 +20,9 @@
 # Additional settings used in all AOSP builds
 PRODUCT_PROPERTY_OVERRIDES := \
     ro.com.android.dateformat=MM-dd-yyyy \
+    persist.sys.language=zh \
+    persist.sys.country=CN \
+    persist.sys.timezone=Asia/Shanghai \
 
 # Put en_US first in the list, so make it default.
 #PRODUCT_LOCALES := en_US
