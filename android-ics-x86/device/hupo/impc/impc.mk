@@ -1,5 +1,7 @@
 PRODUCT_PACKAGES := $(THIRD_PARTY_APPS)
 PRODUCT_PACKAGES += sensors.$(TARGET_PRODUCT)
+PRODUCT_PACKAGES += audio.primary.$(TARGET_PRODUCT) audio_policy.$(TARGET_PRODUCT) audio.a2dp.default alsa.$(TARGET_PRODUCT)
+PRODUCT_PACKAGES += AndroidTerm FileManager
 PRODUCT_PACKAGES += PinyinIME dhcpcd.conf
 
 PRODUCT_COPY_FILES := \
@@ -8,11 +10,9 @@ PRODUCT_COPY_FILES := \
         frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
         frameworks/base/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += \
-        $(LOCAL_PATH)/driver/realtek/wlan.ko:system/lib/modules/wlan.ko
-
 ifeq (yes, no)
 PRODUCT_COPY_FILES += \
+        $(LOCAL_PATH)/driver/realtek/wlan.ko:system/lib/modules/wlan.ko \
         $(LOCAL_PATH)/driver/3dsp/bus/3dspusbbus.ko:system/lib/modules/3dspusbbus.ko \
         $(LOCAL_PATH)/driver/3dsp/private/wlan_priv/3dspusbwlanpriv.ko:system/lib/modules/3dspusbwlanpriv.ko \
         $(LOCAL_PATH)/driver/3dsp/wlan/3dspusbwlan.ko:system/lib/modules/3dspusbwlan.ko \
@@ -35,5 +35,5 @@ PRODUCT_MANUFACTURER := Hu Po
 PRODUCT_MODEL := Android-x86 Tablet PC
 PRODUCT_BRAND := HuPo
 
-PRODUCT_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlays
+#PRODUCT_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlays
 

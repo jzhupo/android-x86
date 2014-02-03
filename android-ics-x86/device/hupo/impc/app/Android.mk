@@ -24,4 +24,4 @@ include $$(BUILD_PREBUILT)
 ALL_DEFAULT_INSTALLED_MODULES += $$(LOCAL_INSTALLED_MODULE)
 endef
 
-#$(foreach a,$(LOCAL_APPLICATION),$(eval $(call install-local-application,$(a))))
+$(foreach a,$(LOCAL_APPLICATION),$(eval $(call install-local-application,$(a))))

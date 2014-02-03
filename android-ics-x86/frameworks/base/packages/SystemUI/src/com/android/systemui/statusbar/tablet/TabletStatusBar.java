@@ -232,7 +232,7 @@ public class TabletStatusBar extends StatusBar implements
                 (TextView)mNotificationPanel.findViewById(R.id.wifi_text));
 
         final ImageView ethernetStatus = 
-             (ImageView)mNotificationPanel.findViewById(R.id.ethernet_status);
+                (ImageView)mNotificationPanel.findViewById(R.id.ethernet_status);
         if (ethernetStatus != null) {
             mNetworkController.addEthernetIconView(ethernetStatus);
         }

@@ -954,8 +954,8 @@ public class NetworkController extends BroadcastReceiver {
             // If data is disconnected for some other reason but wifi is connected, we show nothing.
             // Otherwise (nothing connected) we show "No internet connection".
             //
-            // Special case: Ethernet - Just show "Ethernet Connected" to avoid the misleading "No Internet" message 
-            // @TODO: (nice to have but may be too chatty): Add interface name + IP to the message  
+            // Special case: Ethernet - Just show "Ethernet Connected" to avoid the misleading "No Internet" message
+            // @TODO: (nice to have but may be too chatty): Add interface name + IP to the message
 
             if (mDataConnected) {
                 mobileLabel = mNetworkName;
@@ -965,8 +965,8 @@ public class NetworkController extends BroadcastReceiver {
                 } else {
                     mobileLabel = "";
                 }
-            } else if (mEthernetConnected) { // We don't care about the "Service" here.            	                
-                    mobileLabel = context.getString(R.string.status_bar_settings_ethernet_connected);                
+            } else if (mEthernetConnected) { // We don't care about the "Service" here.
+                    mobileLabel = context.getString(R.string.status_bar_settings_ethernet_connected);
             } else {
                 mobileLabel
                     = context.getString(R.string.status_bar_settings_signal_meter_disconnected);
