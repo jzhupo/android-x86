@@ -252,7 +252,7 @@ endif
 ifdef DEBUG_MODULE_$(strip $(LOCAL_MODULE))
   debug_cflags := $($(my_prefix)CUSTOM_DEBUG_CFLAGS)
 else
-  debug_cflags :=
+  debug_cflags := -g0
 endif
 
 ####################################################
