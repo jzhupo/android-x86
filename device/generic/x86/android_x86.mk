@@ -28,9 +28,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.init.auto_time=true \
     ro.init.accelerometer_rotation=false
 
-PRODUCT_PACKAGES += \
-    PinyinIME
-
 # Put en_US first in the list, so make it default.
 #PRODUCT_LOCALES := en_US
 
